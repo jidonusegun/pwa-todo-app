@@ -30,7 +30,7 @@ export default function TodoList() {
                             <li key={index}>{todo} <div onClick={() => {setOpen(true); setActiveTodo(todo)}}><img src="/img/delete.png" alt="Delete" /></div></li>
                         )
                     })
-                    : <div>No Contents</div>
+                    : <div className="text-center w-100">No Contents</div>
                 }
             </ul>
         </div>

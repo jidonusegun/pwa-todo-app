@@ -2,14 +2,18 @@ body {
   margin: 0;
   padding: 0;
 }
-.App {
+/* .App {
   display: flex;
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
-}
+  max-width: 90%;
+} */
 .text-center {
   text-align: center;
+}
+.w-100 {
+  width: 100%;
 }
 .title {
   background-color: #f69435;
@@ -22,6 +26,7 @@ body {
 }
 .formContainer {
   margin: 2rem;
+  text-align: center;
 
 }
 .formContainer input {
@@ -129,9 +134,13 @@ body {
   position: absolute;
   right: 0px;
 }
-@media only screen and (max-width: 376px) {
+
+@media only screen and (min-width: 374px) and (max-width: 376px) {
+  .formContainer {
+    margin-left: 1rem;
+  }
   .formContainer input {
-    width: 280px;
+    width: 270px;
   }
   .formContainer button {
     margin-left: 1rem;
@@ -150,7 +159,7 @@ body {
     height: 20px;
   }
   .title {
-    width: 82%;
+    width: 83%;
   }
   .dialog-container {
     left: 7%;
@@ -158,8 +167,51 @@ body {
     height: 300px;
   }
 }
+@media only screen and (min-width: 411px) and (max-width: 732px) {
+  .title {
+    width: 84%;
+  }
+  .formContainer {
+    margin-left: 1rem;
+  }
+  .formContainer button {
+    margin-left: 1rem;
+  }
+}
 @media only screen and (min-width: 377px) and (max-width: 769px) {
   .dialog-container {
     left: 20%;
+  }
+}
+@media only screen and (min-width: 300px) and (max-width: 361px) {
+  .formContainer {
+    margin-left: 1rem;
+  }
+  .formContainer input {
+    width: 270px;
+  }
+  .formContainer button {
+    margin-left: 1rem;
+  }
+  .todo-list ul {
+    padding: 0rem
+  }
+  .todo-list ul li {
+    font-size: 20px;
+    text-transform: capitalize;
+    margin: .5rem 0rem;
+    padding: 1rem 2rem;
+  }
+  .todo-list ul li div img { 
+    width: 15px ;
+    height: 20px;
+  }
+  .title {
+    width: 90%;
+  }
+  .dialog-container {
+    left: 7%;
+    width: 300px;
+    height: 300px;
   }
 }
