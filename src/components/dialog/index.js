@@ -4,7 +4,7 @@ export default function Dialog({title=null, children=null, open, close, proceedB
 
     const dialog = () => (
         <div>
-            <div className="backdrop"></div>
+            <div className="backdrop"></div> 
             <div className="dialog-container">
                 <div className="dialog-title-container">
                     <h3>{title}</h3>
@@ -12,7 +12,7 @@ export default function Dialog({title=null, children=null, open, close, proceedB
                 </div>
                 
                 <div>{children}</div>
-                <div>
+                <div className="footer">
                     <button onClick={proceedButton}>Yes</button>
                     <button onClick={() => close(false)}>No</button>
                 </div>
