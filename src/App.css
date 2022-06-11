@@ -190,7 +190,6 @@ body {
     padding: 1rem 2rem;
   }
   .show-counter p {
-    margin-right: .3rem;
     font-size: 20px;
   }
   .countdown p, span {
@@ -227,6 +226,9 @@ body {
     margin-right: .3rem;
     font-size: 20px;
   }
+  .show-counter p {
+    font-size: 20px;
+  }
   .todo-list ul li {
     font-size: 20px;
   }
@@ -249,6 +251,9 @@ body {
   .counter-container {
     margin: 0 2rem;
   }
+  .show-counter p {
+    font-size: 20px;
+  }
 }
 @media only screen and (min-width: 766px) and (max-width: 769px) {
   .dialog-container {
@@ -259,6 +264,9 @@ body {
   }
   .counter-container {
     margin: 0 2rem;
+  }
+  .show-counter p {
+    font-size: 20px;
   }
 }
 @media only screen and (min-width: 300px) and (max-width: 361px) {
@@ -294,6 +302,9 @@ body {
   }
   .countdown p, span {
     margin-right: .3rem;
+    font-size: 20px;
+  }
+  .show-counter p {
     font-size: 20px;
   }
   .counter-container {

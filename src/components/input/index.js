@@ -26,7 +26,7 @@ export default function Form() {
       <input
         type="text"
         name="item"
-        placeholder="Enter your item here..."
+        placeholder="Enter your task here..."
         onChange={(e) => handleChange(e)}
         value={inputField.item}
       />
@@ -34,7 +34,7 @@ export default function Form() {
       <input
         type={inputType}
         name="date"
-        placeholder="Task expiration date and time..."
+        placeholder="Enter expiration date and time..."
         onChange={(e) => handleChange(e)}
         onKeyPress={(e) => onKeyPress(e)}
         value={inputField.date}
