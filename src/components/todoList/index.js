@@ -1,14 +1,19 @@
 import React, { useState, useContext } from 'react';
 import Dialog from '../dialog'
 import { TodoContext } from '../context';
+import CountdownTimer from '../countdown/countdownTimer';
 
 export default function TodoList() {
     const {todos, setTodos} = useContext(TodoContext);
     const [open, setOpen] = useState(false)
     const [activeTodo, setActiveTodo] = useState('')
 
+    const isValidDate = function(date) {
+        return new Date(date).getTime() > new Date().getTime()
+    }
+
     const deleteTodo = () => {
-        const index = todos.indexOf(activeTodo)
+        const index = todos.findIndex(todo => todo.item === activeTodo);
         todos.splice(index,1)
         setTodos([...todos])
         setOpen(false)
@@ -27,10 +32,18 @@ export default function TodoList() {
                 {todos?.length > 0 ?
                     todos?.map((todo, index) => {
                         return (
-                            <li key={index}>{todo} <div onClick={() => {setOpen(true); setActiveTodo(todo)}}><img src="/img/delete.png" alt="Delete" /></div></li>
+                            <div key={index} className="list-container">
+                             <li>
+                                 {todo.item}
+                                 <div className="counter-container">
+                                     <CountdownTimer targetDate={todo.date} item={todo.item} />
+                                 </div>
+                                <div className={isValidDate(todo.date) ? "not-expired" : "expired-list"} onClick={() => {setOpen(true); setActiveTodo(todo)}}><img src="/img/delete.png" alt="Delete" /></div>
+                             </li>
+                            </div>
                         )
                     })
-                    : <div className="text-center w-100">No Contents</div>
+                    : <div className="text-center w-100">No Contents</div> 
                 }
             </ul>
         </div>
