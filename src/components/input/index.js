@@ -3,6 +3,7 @@ import { TodoContext } from "../context";
 
 export default function Form() {
   const { setTodos, todos } = useContext(TodoContext);
+  const [inputType, setInputType] = useState("text")
   const [inputField, setInputField] = useState("");
 
   const handleChange = (e) => {
@@ -31,12 +32,15 @@ export default function Form() {
       />
 
       <input
-        type="datetime-local"
+        type={inputType}
         name="date"
+        placeholder="Task expiration date and time..."
         onChange={(e) => handleChange(e)}
         onKeyPress={(e) => onKeyPress(e)}
         value={inputField.date}
         className="datetime-local"
+        onFocus={() => setInputType("datetime-local")}
+        onBlur={() => {inputField.date ? setInputType("datetime-local") : setInputType("text")}}
       />
       <button onClick={() => handleSubmit()}>Add</button>
     </div>
