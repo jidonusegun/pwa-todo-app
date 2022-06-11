@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import DateTimeDisplay from "./dateTimeDisplay";
 import { useCountdown } from "../../hooks";
 
@@ -27,22 +27,22 @@ const ShowCounter = ({ days, hours, minutes, seconds }) => {
 const CountdownTimer = ({ targetDate, item }) => {
   const [days, hours, minutes, seconds] = useCountdown(targetDate);
   
-  // useEffect(() => {
-  //   Notification.requestPermission()
-  //   .then((result) => {
-  //     if(result === "granted") {
-  //       if(days <= 0 && hours <= 0 && minutes === 5) {
-  //         const title = "Reminder"
-  //         const options = {
-  //           body:  `Reminder: ${item}`,
-  //           icon: "/img/delete.png",
-  //         };
-  //           new Notification(title, options);
-  //         }
-  //     }
-  //   });
-  //   // eslint-disable-next-line
-  // },[minutes])
+  useEffect(() => {
+    Notification.requestPermission()
+    .then((result) => {
+      if(result === "granted") {
+        if(days <= 0 && hours <= 0 && minutes === 5) {
+          const title = "Reminder"
+          const options = {
+            body:  `Reminder: ${item}`,
+            icon: "/img/delete.png",
+          };
+            new Notification(title, options);
+          }
+      }
+    });
+    // eslint-disable-next-line
+  },[minutes])
    
   
   if (days + hours + minutes + seconds <= 0) {
