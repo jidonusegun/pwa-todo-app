@@ -13,6 +13,7 @@ export default function Form() {
   const handleSubmit = () => {
     setTodos([...todos, inputField]);
     setInputField({item: "", date: ""});
+    setInputType("text")
   };
 
   const onKeyPress = (e) => {
@@ -30,7 +31,7 @@ export default function Form() {
         onChange={(e) => handleChange(e)}
         value={inputField.item}
       />
-
+ 
       <input
         type={inputType}
         name="date"
