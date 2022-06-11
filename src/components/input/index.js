@@ -1,25 +1,44 @@
-import React, {useState, useContext} from 'react';
-import { TodoContext } from '../context';
+import React, { useState, useContext } from "react";
+import { TodoContext } from "../context";
 
 export default function Form() {
-    const {setTodos, todos} = useContext(TodoContext)
-    const [inputField, setInputField] = useState('')
+  const { setTodos, todos } = useContext(TodoContext);
+  const [inputField, setInputField] = useState("");
 
-    const handleSubmit = () => {
-        setTodos([...todos, inputField]);
-        setInputField('')
+  const handleChange = (e) => {
+    setInputField({...inputField,  [e.target.name]: e.target.value })
+};
+
+  const handleSubmit = () => {
+    setTodos([...todos, inputField]);
+    setInputField({item: "", date: ""});
+  };
+
+  const onKeyPress = (e) => {
+    if (e.key === "Enter") {
+      handleSubmit();
     }
+  };
 
-    const onKeyPress = (e) => {
-        if(e.key === "Enter") {
-            handleSubmit();
-        }
-    }
+  return (
+    <div className="formContainer">
+      <input
+        type="text"
+        name="item"
+        placeholder="Enter your item here..."
+        onChange={(e) => handleChange(e)}
+        value={inputField.item}
+      />
 
-    return (
-        <div className="formContainer">
-            <input type="text" name="todo" placeholder="Enter your item here..." onChange={(e) => setInputField(e.target.value)} onKeyPress={(e) => onKeyPress(e)} value={inputField} />
-            <button onClick={() => handleSubmit()}>Add</button>
-        </div>
-    )
+      <input
+        type="datetime-local"
+        name="date"
+        onChange={(e) => handleChange(e)}
+        onKeyPress={(e) => onKeyPress(e)}
+        value={inputField.date}
+        className="datetime-local"
+      />
+      <button onClick={() => handleSubmit()}>Add</button>
+    </div>
+  );
 }

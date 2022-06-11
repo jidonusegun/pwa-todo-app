@@ -5,7 +5,6 @@ import TodoContext from './components/context';
 import './App.css';
 
 function App() {
-
   return (
     <TodoContext>
       <div className="App">
