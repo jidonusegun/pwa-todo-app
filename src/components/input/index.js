@@ -13,6 +13,7 @@ export default function Form() {
   const handleSubmit = () => {
     setTodos([...todos, inputField]);
     setInputField({item: "", date: ""});
+    setInputType("text")
   };
 
   const onKeyPress = (e) => {
